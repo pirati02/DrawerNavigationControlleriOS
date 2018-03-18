@@ -1,3 +1,10 @@
+//
+//  DrawerNavigationController.swift
+//  Folk.iOS
+//
+//  Created by baqar gogia on 3/14/18.
+//  Copyright © 2018 baqar gogia. All rights reserved.
+//
 
 import UIKit
 
@@ -72,16 +79,15 @@ class DrawerNavigationController : UINavigationController{
     func toggleDrawer(fromIndicator: Bool = true){
         drawerToggled = drawerView?.frame.origin.x != 0
         UIView.animate(withDuration: 0.4) {
-            if(!fromIndicator){
-                self.drawerView?.frame.origin.x = 0 - self.view.frame.size.width
-            } else {
-                if(!self.drawerToggled){
-                    self.drawerView?.frame.origin.x = 0 - self.view.frame.size.width
-                } else {
+            if(fromIndicator){
+                if(self.drawerToggled){
                     self.drawerView?.frame.origin.x = 0
+                } else {
+                    self.drawerView?.frame.origin.x = 0 - self.view.frame.size.width
                 }
+            } else {
+                self.drawerView?.frame.origin.x = 0 - self.view.frame.size.width
             }
         }
     }
 }
-
