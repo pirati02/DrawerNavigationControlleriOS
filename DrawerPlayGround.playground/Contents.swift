@@ -23,15 +23,13 @@ class DrawerNavigationController : UINavigationController{
         let offsetX = 0 - rootViewFrame.size.width
         drawerView = UIView(frame: CGRect(x: offsetX, y:  0, width:  rootViewFrame.size.width - 100, height:  rootViewFrame.size.height))
         drawerView?.backgroundColor = UIColor.red
-        
-        let tapGestureRecogniserForDrawerView = UITapGestureRecognizer(target: self, action:  #selector (self.draweViewClicked (_:)))
+         
         let tapGestureRecogniserForVisibleController = UITapGestureRecognizer(target: self, action:  #selector (self.draweViewClicked (_:)))
         let tapGestureRecogniserForNavbar = UITapGestureRecognizer(target: self, action:  #selector (self.draweViewClicked (_:)))
         let panGestureRecogniserDrawerView = UIPanGestureRecognizer(target: self, action: #selector (self.drawerMovement(_:)))
         let panGestureRecogniserForVisibleController = UIPanGestureRecognizer(target: self, action: #selector (self.drawerMovementFromVisibleController(_:)))
         
-        navigationBar.addGestureRecognizer(tapGestureRecogniserForNavbar)
-        drawerView?.addGestureRecognizer(tapGestureRecogniserForDrawerView)
+        navigationBar.addGestureRecognizer(tapGestureRecogniserForNavbar) 
         drawerView?.addGestureRecognizer(panGestureRecogniserDrawerView)
         visibleViewController?.view.addGestureRecognizer(panGestureRecogniserForVisibleController)
         visibleViewController?.view.addGestureRecognizer(tapGestureRecogniserForVisibleController)
